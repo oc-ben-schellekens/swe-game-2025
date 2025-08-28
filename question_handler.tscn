@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3b00o8bcet2v"]
+
+[ext_resource type="Script" uid="uid://bruc87fj7ko5c" path="res://scripts/question_handler/question_handler.gd" id="1_5rkhf"]
+
+[node name="question_handler" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5rkhf")
+
+[node name="Old" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 584.0
+offset_right = 896.0
+offset_bottom = 624.0
+alignment = 1
+
+[node name="TextPanel" type="Panel" parent="."]
+z_index = -1
+layout_mode = 0
+offset_left = 256.0
+offset_top = 392.0
+offset_right = 896.0
+offset_bottom = 560.0
+
+[node name="QuestionText" type="RichTextLabel" parent="TextPanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 632.0
+offset_bottom = 160.0
+bbcode_enabled = true
+text = "Evil [tornado]twisting test text[/tornado]of [shake]doom and despair[/shake] that will kill you until you die!!!!"
+
+[node name="QuestionContainer" type="HFlowContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 256.0
+offset_top = 568.0
+offset_right = 896.0
+offset_bottom = 632.0
+alignment = 1
+last_wrap_alignment = 2
