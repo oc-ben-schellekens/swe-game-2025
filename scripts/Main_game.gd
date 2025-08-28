@@ -4,7 +4,7 @@ extends Node2D
 
 var data_of_question := {
 	"text": "[shake]test question, true or false?[/shake]",
-	"answers": ["True", "False", "a", "a"],
+	"answers": ["True", "False"],
 	"correct_answer": 0
 }
 
@@ -17,7 +17,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_question_handler_question_answered_correctly() -> void:
+	question_handler.clear_question()
 	print("correct")
+	question_handler.show_question(Globals.questions.pick_random())
 
 func _on_question_handler_question_answered_incorrectly() -> void:
 	print("WRONG XXXXX")

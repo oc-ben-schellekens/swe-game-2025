@@ -17,5 +17,4 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Questions="*res://questions.gd"
-ScoreManager="*res://score_manager.gd"
+Globals="*res://scripts/Global.gd"

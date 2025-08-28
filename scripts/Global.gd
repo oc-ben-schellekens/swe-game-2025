@@ -1,5 +1,23 @@
 extends Node
 
+#region Global variables
+var _score: int = 0
+#endregion
+
+#region Score managment Functions
+func get_score():
+	return _score
+
+func set_score(new_score: int):
+	_score = new_score
+
+func add_score(to_add: int):
+	_score += to_add
+
+func remove_score(to_subtract: int):
+	_score -= to_subtract
+#endregion
+
 # ---QUESTION SCHEMA---
 # type: Questionhandler.QuestionType
 #
@@ -8,6 +26,7 @@ extends Node
 # 	answers: [String] (array of strings)
 # 	Correct answer: Integer
 
+#region Questions
 var questions: Array[Dictionary] = [
 	{
 		"text": "This is test text for a question",
@@ -30,3 +49,4 @@ var questions: Array[Dictionary] = [
 		"correct_answer": 0
 	},
 ]
+#endregion
