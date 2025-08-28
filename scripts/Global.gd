@@ -1,6 +1,7 @@
 extends Node
 
-#region Global variables
+# I think gdscript needs private variables
+#region "private" variables
 var _score: int = 0
 #endregion
 
