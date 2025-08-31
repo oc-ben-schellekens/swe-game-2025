@@ -26,33 +26,55 @@ horizontal_alignment = 1
 [node name="IncorrectAnswerPopup" type="Panel" parent="."]
 visible = false
 offset_left = 448.0
-offset_top = 192.0
+offset_top = 128.0
 offset_right = 704.0
 offset_bottom = 320.0
 script = ExtResource("3_cianq")
 
-[node name="Label" type="Label" parent="IncorrectAnswerPopup"]
+[node name="StaticLabel" type="Label" parent="IncorrectAnswerPopup"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.031
 anchor_top = 0.062
 anchor_right = 0.969
-anchor_bottom = 0.625
-offset_left = 0.0639997
-offset_top = 0.0639997
-offset_right = -0.0639954
-text = "That answer was incorrect!"
+anchor_bottom = 0.375
+offset_left = 0.0640001
+offset_top = 0.0960007
+offset_right = -0.0640106
+offset_bottom = -8.00001
+text = "That answer was incorrect!
+The correct answer was:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Button" type="Button" parent="IncorrectAnswerPopup"]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 88.0
-offset_right = 248.0
-offset_bottom = 119.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.792
+anchor_right = 0.969
+anchor_bottom = 0.953
+offset_left = 0.0639997
+offset_top = -0.0640106
+offset_right = -0.0640106
+offset_bottom = 0.0239868
 text = "OK"
 
+[node name="AnswerLabel" type="Label" parent="IncorrectAnswerPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.062
+anchor_right = 0.969
+anchor_bottom = 0.375
+offset_left = 0.0640001
+offset_top = 60.096
+offset_right = -0.0640106
+offset_bottom = 72.0
+text = "[ANSWER]"
+horizontal_alignment = 1
+
+[connection signal="next_question_shown" from="question_handler" to="IncorrectAnswerPopup" method="_on_question_handler_next_question_shown"]
 [connection signal="question_answered_correctly" from="question_handler" to="." method="_on_question_handler_question_answered_correctly"]
 [connection signal="question_answered_incorrectly" from="question_handler" to="." method="_on_question_handler_question_answered_incorrectly"]
 [connection signal="button_clicked" from="IncorrectAnswerPopup" to="." method="_on_incorrect_answer_popup_button_clicked"]

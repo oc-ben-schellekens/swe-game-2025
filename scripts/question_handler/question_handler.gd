@@ -3,12 +3,14 @@ class_name QuestionHandler
 
 signal question_answered_correctly
 signal question_answered_incorrectly
+signal next_question_shown(answer: String)
 
 @onready var question_text: RichTextLabel = %QuestionText
 @onready var question_container: HFlowContainer = %QuestionContainer
 var buttons: Array[Button] = []
 
 func show_question(question_data: Dictionary):
+	next_question_shown.emit(question_data.answers[question_data.correct_answer])
 	question_text.text = question_data.text
 	if question_data.answers.size() > 0 && question_data.answers.size() <= 4:
 		for index in range(question_data.answers.size()):
