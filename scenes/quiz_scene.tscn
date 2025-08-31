@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkih8y3h7jb2e"]
+
+[ext_resource type="Script" uid="uid://dfvyjfgy6aie2" path="res://scripts/main_game.gd" id="1_pkh6a"]
+[ext_resource type="PackedScene" uid="uid://c3b00o8bcet2v" path="res://scripts/question_handler/question_handler.tscn" id="2_cianq"]
+[ext_resource type="Script" uid="uid://bsbvr064tsyx6" path="res://scripts/incorrect_answer_popup.gd" id="3_cianq"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pkh6a")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 11.0
+
+[node name="question_handler" parent="." instance=ExtResource("2_cianq")]
+
+[node name="ScoreIndicator" type="Label" parent="."]
+offset_left = 384.0
+offset_top = 24.0
+offset_right = 760.0
+offset_bottom = 47.0
+text = "[ SCORE ]"
+horizontal_alignment = 1
+
+[node name="IncorrectAnswerPopup" type="Panel" parent="."]
+visible = false
+offset_left = 448.0
+offset_top = 192.0
+offset_right = 704.0
+offset_bottom = 320.0
+script = ExtResource("3_cianq")
+
+[node name="Label" type="Label" parent="IncorrectAnswerPopup"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.031
+anchor_top = 0.062
+anchor_right = 0.969
+anchor_bottom = 0.625
+offset_left = 0.0639997
+offset_top = 0.0639997
+offset_right = -0.0640106
+text = "That answer was incorrect!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="IncorrectAnswerPopup"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 248.0
+offset_bottom = 119.0
+text = "OK"
+
+[connection signal="question_answered_correctly" from="question_handler" to="." method="_on_question_handler_question_answered_correctly"]
+[connection signal="question_answered_incorrectly" from="question_handler" to="." method="_on_question_handler_question_answered_incorrectly"]
+[connection signal="button_clicked" from="IncorrectAnswerPopup" to="." method="_on_incorrect_answer_popup_button_clicked"]

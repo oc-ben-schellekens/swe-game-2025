@@ -11,14 +11,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5rkhf")
 
-[node name="Old" type="BoxContainer" parent="."]
-layout_mode = 0
-offset_left = 256.0
-offset_top = 584.0
-offset_right = 896.0
-offset_bottom = 624.0
-alignment = 1
-
 [node name="TextPanel" type="Panel" parent="."]
 z_index = -1
 layout_mode = 0
