@@ -84,12 +84,42 @@ var questions: Array[Dictionary] = [
 	{
 		"text": "What CAN'T Covers be used for?",
 		"answers": ["Storing items", "Storing fluids", "Generating unlimited water", "Filtering items"],
-		"correct_answer": 0
+		"correct_answer": 1
 	},
 	{
 		"text": "What steam age multiblock allows for grinding mass amounts of materials?",
 		"answers": ["Steam Grinder", "Large Bronze Macerator"],
 		"correct_answer": 0
+	},
+	{
+		"text": "What is one of the first uses for steel in the steam age?",
+		"answers": ["LV circuits", "Better pipes", "Better steam machines"],
+		"correct_answer": 2
+	},
+	{
+		"text": "Which of these machines relates to batteries?",
+		"answers": ["Packager", "Canning machine", "Polarizer", "Battery Machine"],
+		"correct_answer": 1
+	},
+	{
+		"text": "What is the main material used in MV tier?",
+		"answers": ["Steel", "Aluminum", "Stainless Steel", "Tin alloy"],
+		"correct_answer": 3
+	},
+	{
+		"text": "What is the first tier of coil that you obtain?",
+		"answers": ["Kanthal", "Nichrome", "Cupronickel", "None of these"],
+		"correct_answer": 2
+	},
+	{
+		"text": "What tool is used for configuring a machine/cover?",
+		"answers": ["Wrench", "Screwdriver", "Hammer", "Shovel"],
+		"correct_answer": 1
+	},
+	{
+		"text": "What multiblock allows for the player to smelt aluminium",
+		"answers": ["Primitive Blast Furnace", "Blast furnace", "Electric Blast Furnace"],
+		"correct_answer": 2
 	},
 ]
 #endregion
