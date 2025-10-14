@@ -3,14 +3,14 @@ class_name QuestionHandler
 
 signal question_answered_correctly
 signal question_answered_incorrectly
-signal next_question_shown(answer: String)
+signal next_question_shown(answer: String, reason: String)
 
 @onready var question_text: RichTextLabel = %QuestionText
 @onready var question_container: HFlowContainer = %QuestionContainer
 var buttons: Array[Button] = []
 
 func show_question(question_data: Dictionary):
-	next_question_shown.emit(question_data.answers[question_data.correct_answer])
+	next_question_shown.emit(question_data.answers[question_data.correct_answer], question_data.reason)
 	question_text.text = question_data.text
 	if question_data.answers.size() > 0 && question_data.answers.size() <= 4:
 		for index in range(question_data.answers.size()):
@@ -43,7 +43,3 @@ func _add_button(text: String, parent: Node, is_correct: bool):
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print("Question handler is ready!!!")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-#	pass

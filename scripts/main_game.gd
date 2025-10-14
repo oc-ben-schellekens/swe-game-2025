@@ -3,6 +3,8 @@ extends Node2D
 @onready var question_handler: QuestionHandler = $question_handler
 @onready var score_indicator: Label = $ScoreIndicator
 @onready var incorrect_answer_popup: Panel = $IncorrectAnswerPopup
+@onready var correct_particle: CPUParticles2D = $CorrectParticle
+@onready var correct_noise: AudioStreamPlayer2D = $CorrectNoise
 
 var RNG := RandomNumberGenerator.new()
 
@@ -18,7 +20,7 @@ func _ready() -> void:
 	question_handler.show_question(Globals.questions.pick_random())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var current_frame_score: int = Globals.get_score()
 	score_indicator.text = "Score: %d" % current_frame_score
 	if current_frame_score >= 100:
@@ -29,6 +31,8 @@ func _process(delta: float) -> void:
 func _on_question_handler_question_answered_correctly() -> void:
 	question_handler.clear_question()
 	Globals.add_score(RNG.randi_range(-5,lerp(10, 5, (Globals.get_score()/100) )))
+	correct_particle.restart()
+	correct_noise.play()
 	print(str(lerp(10, 5, (float(Globals.get_score())/100)) ) + " | " +str(float(Globals.get_score())/100))
 	question_handler.show_question(Globals.questions.pick_random())
 
